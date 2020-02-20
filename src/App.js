@@ -1,0 +1,41 @@
+import React, { Component } from 'react';
+import logo from './logo.svg';
+import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { makeStyles } from '@material-ui/core/styles';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import IconButton from '@material-ui/core/IconButton';
+import MenuIcon from '@material-ui/icons/Menu';
+
+
+const useStyles = makeStyles(theme => ({
+  root: {
+    flexGrow: 1,
+
+  },
+  menuButton: {
+    marginRight: theme.spacing(2),
+  },
+}));
+
+export default function DenseAppBar() {
+  const classes = useStyles();
+
+  return(
+    <div className={classes.root}>
+
+    <AppBar position="static" color="1C3340">
+    <Toolbar variant="dense">
+      <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+        <MenuIcon />
+      </IconButton>
+      <Typography variant="h6" color="inherit">
+        Sign-in 
+      </Typography>
+    </Toolbar>
+  </AppBar>
+  </div>
+  );
+}
