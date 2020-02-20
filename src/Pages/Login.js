@@ -1,18 +1,9 @@
-<<<<<<< HEAD
 import React, { Component } from "react";
-=======
-import React from "react";
->>>>>>> c615ff727d0176f7293840df6909663fc9e50413
 import "bootstrap/dist/css/bootstrap.min.css";
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
-<<<<<<< HEAD
-=======
-import IconButton from "@material-ui/core/IconButton";
-import MenuIcon from "@material-ui/icons/Menu";
->>>>>>> c615ff727d0176f7293840df6909663fc9e50413
 import TextField from "@material-ui/core/TextField";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
@@ -24,10 +15,7 @@ import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Container from "@material-ui/core/Container";
-<<<<<<< HEAD
-import DropdownMenu from '../Components/DropdownComponent'
-=======
->>>>>>> c615ff727d0176f7293840df6909663fc9e50413
+import DropdownMenu from "../Components/DropdownComponent";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -61,18 +49,7 @@ export default function Login() {
     <div className={classes.root}>
       <AppBar position="static" style={{ backgroundColor: "#182b36" }}>
         <Toolbar variant="dense">
-<<<<<<< HEAD
-          <DropdownMenu/>
-=======
-          <IconButton
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="menu"
-          >
-            <MenuIcon />
-          </IconButton>
->>>>>>> c615ff727d0176f7293840df6909663fc9e50413
+          <DropdownMenu />
           <Typography variant="h6" color="inherit">
             Sign-in
           </Typography>
