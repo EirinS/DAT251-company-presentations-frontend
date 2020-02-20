@@ -6,7 +6,7 @@ import {
   Link
 } from "react-router-dom";
 import Login from './Pages/Login'
-
+import Dashboard from "./Pages/Dashboard";
 
 export default function Routing() {
   return (
@@ -16,6 +16,9 @@ export default function Routing() {
         <Switch>
           <Route path="/Login">
             <Login />
+          </Route>
+          <Route path="/Dashboard">
+            <Dashboard />
           </Route>
         </Switch>
       </div>
