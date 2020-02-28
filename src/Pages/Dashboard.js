@@ -6,6 +6,7 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
 import DropdownMenu from "../Components/DropdownComponent";
+import PresentationComponent from "../Components/PresentationComponent";
 
 
 const useStyles = makeStyles(theme => ({
@@ -25,10 +26,11 @@ export default function Dashboard() {
           <Toolbar variant="dense">
           <DropdownMenu/>
             <Typography variant="h6" color="inherit">
-Dashboard
+                Dashboard
             </Typography>
           </Toolbar>
         </AppBar>
+          <PresentationComponent/>
         </div>
     );
 }
