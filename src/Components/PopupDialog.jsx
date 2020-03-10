@@ -45,9 +45,15 @@ export default function FormDialog(props) {
         <DialogTitle id="form-dialog-title">{props.bedriftsnavn}</DialogTitle>
         <DialogContent>
           <DialogContentText className={classes.texts}>
+<<<<<<< HEAD
               <p className={classes.title}>
             {props.prop.bedriftsnavn}
             </p>
+=======
+            {props.prop.bedriftsnavn}
+            <br/>
+            <br/>
+>>>>>>> Adds dashboard
             {props.prop.dato}
             <br/>
             <br/>

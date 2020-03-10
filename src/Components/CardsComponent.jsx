@@ -4,13 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import render from "react-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Typography from '@material-ui/core/Typography';
-import FormDialog from './PopupDialog'
-import Container from "@material-ui/core/Container";
-import Checkbox from "@material-ui/core/Checkbox";
-import CardMedia from "@material-ui/core/CardMedia";
-import CardActionArea from "@material-ui/core/CardActionArea";
-import CardContent from "@material-ui/core/CardContent";
-import CardActions from "@material-ui/core/CardActions";
+import FormDialog from './PopupDialog';
 
 
 const useStyles = makeStyles({
@@ -110,32 +104,17 @@ export default function CardComponent() {
   Object.keys(bedpressJSONObject.bedpress).forEach(index => {
     let card = bedpressJSONObject.bedpress[index];
     cardList.push(
-      <Card className={classes.card}>
-        <CardActionArea>
-          <CardMedia
-              component="img"
-              height="140"
-              className={classes.media}
-              image="https://www.bindeleddet.no/uploads/companies/1082/logo/medium_LOGO-BEKKlogo.png"
-              title="Bekk"
-        />
-        <CardContent>
-         <Typography className={classes.title} color="textSecondary" align="left" gutterBottom>
-          {card.dato}
-         </Typography>
-         <Typography variant="h5" component="h2">
-            {card.bedriftsnavn}
-          </Typography>
-         <Typography className={classes.pos} color="textSecondary">
-            {card.info}
-          </Typography>
-
-        </CardContent>
-        </CardActionArea>
-        <CardActions>
-        <Grid container spacing={12}>
-          <FormDialog prop={card} /></Grid>
-        </CardActions>
+      <Card className={classes.cardd}>
+       <Typography className={classes.title} color="textSecondary" align="left" gutterBottom>
+        {card.dato}
+       </Typography>
+       <Typography variant="h5" component="h2">
+          {card.bedriftsnavn}
+        </Typography>
+       <Typography className={classes.pos} color="textSecondary">
+          {card.info}
+        </Typography>
+       <FormDialog prop={card}/>
       </Card>
     );
   });
