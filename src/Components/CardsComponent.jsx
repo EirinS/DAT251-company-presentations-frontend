@@ -4,6 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import render from "react-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Typography from '@material-ui/core/Typography';
+import FormDialog from './PopupDialog'
 
 
 const useStyles = makeStyles({
@@ -113,6 +114,7 @@ export default function CardComponent() {
        <Typography className={classes.pos} color="textSecondary">
           {card.info}
         </Typography>
+       <FormDialog prop={card}/>
       </Card>
     );
   });
