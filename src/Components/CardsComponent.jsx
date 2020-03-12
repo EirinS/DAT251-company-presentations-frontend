@@ -10,11 +10,12 @@ import Checkbox from "@material-ui/core/Checkbox";
 import CardMedia from "@material-ui/core/CardMedia";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardContent from "@material-ui/core/CardContent";
+import CardActions from "@material-ui/core/CardActions";
 
 
 const useStyles = makeStyles({
   card: {
-    width: "25%",
+    width: "50%",
     height: "25%",
     marginBottom: 15,
     marginLeft: 15,
@@ -27,7 +28,7 @@ const useStyles = makeStyles({
     flexWrap: "wrap"
   },
   title: {
-    marginLeft: 5,
+    marginLeft: 0,
     marginTop: 5,
   },
   pos: {
@@ -127,10 +128,13 @@ export default function CardComponent() {
          <Typography className={classes.pos} color="textSecondary">
             {card.info}
           </Typography>
-            <Grid container spacing={12}>
-              <FormDialog prop={card} /></Grid>
+
         </CardContent>
         </CardActionArea>
+        <CardActions>
+        <Grid container spacing={12}>
+          <FormDialog prop={card} /></Grid>
+        </CardActions>
       </Card>
     );
   });
