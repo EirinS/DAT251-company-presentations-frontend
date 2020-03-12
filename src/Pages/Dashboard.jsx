@@ -53,15 +53,15 @@ export default function Dashboard() {
             </IconButton>
             <Drawer anchor='left' open={menuOpen} onClose={() => setMenuOpen(false)}>
               <ListItem button>
-                <AssignmentIcon/>
+                <ListItemIcon><AssignmentIcon/></ListItemIcon>
                 <ListItemText primary={'Påmeldinger'} />
               </ListItem>
               <ListItem button>
-                <EqualizerIcon/>
+                <ListItemIcon><EqualizerIcon/></ListItemIcon>
                 <ListItemText primary={'Status'} />
               </ListItem>
               <ListItem button>
-                <MailOutlineIcon/>
+                <ListItemIcon><MailOutlineIcon/></ListItemIcon>
                 <ListItemText primary={'Kontakt oss'} />
               </ListItem>
               <List>
