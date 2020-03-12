@@ -17,6 +17,7 @@ import ListItemText from "@material-ui/core/ListItemText";
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import AssignmentIcon from '@material-ui/icons/Assignment';
 import EqualizerIcon from '@material-ui/icons/Equalizer';
+import Grid from "@material-ui/core/Grid";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -37,6 +38,12 @@ export default function Dashboard() {
       <div>
         <AppBar position="static" style={{ backgroundColor: "#182b36" }}>
           <Toolbar variant="dense">
+            <Grid
+                container
+                direction="row"
+                justify="space-between"
+                alignItems="baseline"
+            >
             {/*<DropdownMenu />*/}
             <IconButton edge="start"
                         className={classes.menuButton}
@@ -61,9 +68,15 @@ export default function Dashboard() {
 
               </List>
             </Drawer>
-            <Typography variant="h6" color="inherit">
+              {/*<Typography variant="h6" color="inherit">
               Dashboard
+            </Typography>*/}
+            <Typography>
+              <Button href={"/login"} variant="contained" color="primary" size="small" className={classes.margin}>
+                Logg inn
+              </Button>
             </Typography>
+            </Grid>
           </Toolbar>
         </AppBar>
       </div>
