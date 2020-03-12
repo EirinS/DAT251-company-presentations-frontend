@@ -10,8 +10,15 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 
 const useStyles = makeStyles({
     texts: {
-        textAlign: "center"
+        textAlign: "center",
+        fontSize: "25px",
+        color: "#4d4d4d"
     },
+    title: {
+        fontWeight: "bolder",
+        fontSize: "35px",
+        color: "#333333"
+    }
   });
 
 export default function FormDialog(props) {
@@ -38,9 +45,9 @@ export default function FormDialog(props) {
         <DialogTitle id="form-dialog-title">{props.bedriftsnavn}</DialogTitle>
         <DialogContent>
           <DialogContentText className={classes.texts}>
+              <p className={classes.title}>
             {props.prop.bedriftsnavn}
-            <br/>
-            <br/>
+            </p>
             {props.prop.dato}
             <br/>
             <br/>
