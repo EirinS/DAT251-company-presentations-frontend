@@ -68,8 +68,13 @@ export default function Dashboard() {
 
               </List>
             </Drawer>
-            <Typography variant="h6" color="inherit">
+              {/*<Typography variant="h6" color="inherit">
               Dashboard
+            </Typography>*/}
+            <Typography>
+              <Button href={"/login"} variant="contained" color="primary" size="small" className={classes.margin}>
+                Logg inn
+              </Button>
             </Typography>
             </Grid>
           </Toolbar>
