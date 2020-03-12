@@ -53,24 +53,21 @@ export default function Dashboard() {
             </IconButton>
             <Drawer anchor='left' open={menuOpen} onClose={() => setMenuOpen(false)}>
               <ListItem button>
-                <ListItemIcon><AssignmentIcon/></ListItemIcon>
+                <AssignmentIcon/>
                 <ListItemText primary={'Påmeldinger'} />
               </ListItem>
               <ListItem button>
-                <ListItemIcon><EqualizerIcon/></ListItemIcon>
+                <EqualizerIcon/>
                 <ListItemText primary={'Status'} />
               </ListItem>
               <ListItem button>
-                <ListItemIcon><MailOutlineIcon/></ListItemIcon>
+                <MailOutlineIcon/>
                 <ListItemText primary={'Kontakt oss'} />
               </ListItem>
               <List>
 
               </List>
             </Drawer>
-              {/*<Typography variant="h6" color="inherit">
-              Dashboard
-            </Typography>*/}
             <Typography>
               <Button href={"/login"} variant="contained" color="primary" size="small" className={classes.margin}>
                 Logg inn
