@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { CardHeader, Card, Grid } from "@material-ui/core";
 import { makeStyles } from '@material-ui/core/styles';
 import render from "react-dom";
@@ -17,7 +17,7 @@ const useStyles = makeStyles({
     marginRight: 15,
     textAlign: "center",
     flex: "1 0 20%"
-  },
+  },  
   card_list: {
     display: "flex",
   flexWrap: "wrap"
@@ -35,94 +35,36 @@ const useStyles = makeStyles({
 export default function CardComponent() {
   const classes = useStyles();
 
-  let bedpressJSONObject = {
-    bedpress: {
-      "0": {
-        bedriftsnavn: "Politiet",
-        dato: "24.12.12",
-        info: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis lobortis mi dui, non hendrerit lacus ullamcorper vel. Mauris porttitor augue."
-      },
-      "1": {
-        bedriftsnavn: "Bekk",
-        dato: "14.05.22",
-        info: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis lobortis mi dui, non hendrerit lacus ullamcorper vel. Mauris porttitor augue."
-      },
-      "2": {
-        bedriftsnavn: "TV2",
-        dato: "15.2.12",
-        info: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis lobortis mi dui, non hendrerit lacus ullamcorper vel. Mauris porttitor augue."
-      },
-      "4": {
-        bedriftsnavn: "Computas",
-        dato: "24.12.12",
-        info: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis lobortis mi dui, non hendrerit lacus ullamcorper vel. Mauris porttitor augue."
-      },
-      "5": {
-        bedriftsnavn: "HVL",
-        dato: "14.05.22",
-        info: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis lobortis mi dui, non hendrerit lacus ullamcorper vel. Mauris porttitor augue."
-      },
-      "6": {
-        bedriftsnavn: "UIB",
-        dato: "15.2.12",
-        info: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis lobortis mi dui, non hendrerit lacus ullamcorper vel. Mauris porttitor augue."
-      },
-      "7": {
-        bedriftsnavn: "Sopra Steria",
-        dato: "24.12.12",
-        info: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis lobortis mi dui, non hendrerit lacus ullamcorper vel. Mauris porttitor augue."
-      },
-      "8": {
-        bedriftsnavn: "McDonalds",
-        dato: "14.05.22",
-        info: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis lobortis mi dui, non hendrerit lacus ullamcorper vel. Mauris porttitor augue."
-      },
-      "9": {
-        bedriftsnavn: "Norwegian",
-        dato: "15.2.12",
-        info: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis lobortis mi dui, non hendrerit lacus ullamcorper vel. Mauris porttitor augue."
-      },
-      "10": {
-        bedriftsnavn: "Google",
-        dato: "24.12.12",
-        info: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis lobortis mi dui, non hendrerit lacus ullamcorper vel. Mauris porttitor augue."
-      },
-      "11": {
-        bedriftsnavn: "Microsoft",
-        dato: "14.05.22",
-        info: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis lobortis mi dui, non hendrerit lacus ullamcorper vel. Mauris porttitor augue."
-      },
-      "12": {
-        bedriftsnavn: "Apple",
-        dato: "15.2.12",
-        info: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis lobortis mi dui, non hendrerit lacus ullamcorper vel. Mauris porttitor augue."
-      }
-    }
-  };
+  const [presentations, setPresentations] = useState({});
+
+  useEffect(() => {
+    const fetchPresentations = async () => {
+      fetch("/allPresentations").then(response => response.json()).then(fetchedPresentations => setPresentations(fetchedPresentations)).catch(error => console.log(error));
+    }; });
 
   let cardList = [];
-  Object.keys(bedpressJSONObject.bedpress).forEach(index => {
-    let card = bedpressJSONObject.bedpress[index];
+  Object.keys(presentations).forEach(index => {
+    let card = presentations[index];
     cardList.push(
       <Card className={classes.cardd}>
        <Typography className={classes.title} color="textSecondary" align="left" gutterBottom>
-        {card.dato}
+        {card.dateOfPresentation}
        </Typography>
        <Typography variant="h5" component="h2">
-          {card.bedriftsnavn}
+          {card.companyPresenting.companyName}
         </Typography>
        <Typography className={classes.pos} color="textSecondary">
-          {card.info}
+          {card.description}
         </Typography>
        <FormDialog prop={card}/>
       </Card>
     );
   });
-{
+
    return (
    <div className={classes.card_list}>
      {cardList}
      </div>
      );
-    }
+    
 }

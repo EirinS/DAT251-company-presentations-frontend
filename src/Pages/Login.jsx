@@ -43,13 +43,25 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
+function Copyright() {
+  return (
+    <Typography variant="body2" color="textSecondary" align="center">
+      {"Copyright © "}
+      <Link color="inherit" href="https://material-ui.com/">
+        Bedpressportalen
+      </Link>{" "}
+      {new Date().getFullYear()}
+      {"."}
+    </Typography>
+  );
+}
+
 export default function Login() {
   const classes = useStyles();
   return (
     <div className={classes.root}>
       <AppBar position="static" style={{ backgroundColor: "#182b36" }}>
         <Toolbar variant="dense">
-          <DropdownMenu />
           <Typography variant="h6" color="inherit">
             Sign-in
           </Typography>
@@ -105,7 +117,7 @@ export default function Login() {
             
             <Grid container>
               <Grid item>
-                <Link href="#" variant="body2">
+                <Link href="/registration" variant="body2">
                   {"Don't have an account? Sign Up"}
                 </Link>
               </Grid>
@@ -114,6 +126,7 @@ export default function Login() {
         </div>
         <Box mt={8}></Box>
       </Container>
+      <Copyright/>
     </div>
   );
 }
