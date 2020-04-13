@@ -4,6 +4,13 @@ import { makeStyles } from '@material-ui/core/styles';
 import render from "react-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Typography from '@material-ui/core/Typography';
+import FormDialog from './PopupDialog'
+import Container from "@material-ui/core/Container";
+import Checkbox from "@material-ui/core/Checkbox";
+import CardMedia from "@material-ui/core/CardMedia";
+import CardActionArea from "@material-ui/core/CardActionArea";
+import CardContent from "@material-ui/core/CardContent";
+import CardActions from "@material-ui/core/CardActions";
 
 const useStyles = makeStyles({
   card: {
@@ -13,12 +20,11 @@ const useStyles = makeStyles({
     marginLeft: 15,
     marginTop: 15,
     marginRight: 15,
-    textAlign: "center",
     flex: "1 0 20%"
   },
   card_list: {
     display: "flex",
-  flexWrap: "wrap"
+    flexWrap: "wrap"
   },
   title: {
     marginLeft: 0,
