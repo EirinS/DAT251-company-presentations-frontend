@@ -21,12 +21,11 @@ const useStyles = makeStyles({
     marginLeft: 15,
     marginTop: 15,
     marginRight: 15,
-    textAlign: "center",
     flex: "1 0 20%"
   },
   card_list: {
     display: "flex",
-  flexWrap: "wrap"
+    flexWrap: "wrap"
   },
   title: {
     marginLeft: 0,

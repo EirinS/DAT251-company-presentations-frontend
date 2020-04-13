@@ -11,7 +11,10 @@
     "react": "^16.13.0",
     "react-bootstrap": "^1.0.0-beta.17",
     "react-dom": "^16.13.0",
+<<<<<<< HEAD
     "font-awesome": "^4.7.0",
+=======
+>>>>>>> 0f14e4ce550854c727fbec2df8dd51141a1f680a
     "react-router-dom": "^5.1.2",
     "react-scripts": "0.9.5",
     "start": "^5.1.0"
