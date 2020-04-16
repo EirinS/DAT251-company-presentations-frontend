@@ -16,6 +16,7 @@ import Box from "@material-ui/core/Box";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Container from "@material-ui/core/Container";
 import DropdownMenu from "../Components/DropdownComponent";
+import Navbar from "../Components/Navbar";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -47,14 +48,7 @@ export default function Login() {
   const classes = useStyles();
   return (
     <div className={classes.root}>
-      <AppBar position="static" style={{ backgroundColor: "#182b36" }}>
-        <Toolbar variant="dense">
-          <DropdownMenu />
-          <Typography variant="h6" color="inherit">
-            Sign-in
-          </Typography>
-        </Toolbar>
-      </AppBar>
+      <Navbar/>
 
       <Container component="main" maxWidth="xs">
         <CssBaseline />

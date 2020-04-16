@@ -4,9 +4,23 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import "bootstrap/dist/css/bootstrap.min.css";
 import React, {useEffect, useState} from "react";
-import CardComponent from "../Components/CardsComponent";
+import CardsComponent from "../Components/CardsComponent";
 import DropdownMenu from "../Components/DropdownComponent";
-import {AxiosInstance as axios} from "axios";
+import axios from "axios";
+import Grid from "@material-ui/core/Grid";
+import IconButton from "@material-ui/core/IconButton";
+import Drawer from "@material-ui/core/Drawer";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
+import ListItemText from "@material-ui/core/ListItemText";
+import Button from "@material-ui/core/Button";
+import MailOutlineIcon from '@material-ui/icons/MailOutline';
+import AssignmentIcon from '@material-ui/icons/Assignment';
+import EqualizerIcon from '@material-ui/icons/Equalizer';
+import MenuIcon from "@material-ui/icons/Menu";
+import List from "@material-ui/core/List";
+import Navbar from "../Components/Navbar";
+
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1
@@ -25,36 +39,10 @@ export default function Dashboard() {
     getPresentations().then();
   }, []);
 
-
-  //fetches all presentations from backend
-  //TODO: not working
-  /*const getPresentations = async () => {
-    console.log("is fetching");
-    const response = await fetch("http://localhost:8080/allPresentations");
-    const data = await response.json();
-    console.log(data);
-    setPresentations(data);
-    console.log(presentations);
-  };
-
-  const getPresentations2 = async () => {
-    fetch("http://localhost:8080/allPresentations")
-        .then(res => res.json())
-        .then(
-            (result) => {
-              setPresentations(result);
-            },
-            (error) => {
-              setPresentations([]);
-            }
-        )
-  };*/
-
-  //Uses axios instead
+  //AXIOS for rest calls
   const getPresentations = async () => {
     try {
       const response = await axios.get('http://localhost:8080/allPresentations');
-      console.log(response.data);
       setPresentations(response.data);
     }
     catch (e) {
@@ -65,17 +53,9 @@ export default function Dashboard() {
   return (
     <div className={classes.root}>
       <div>
-        <AppBar position="static" style={{ backgroundColor: "#182b36" }}>
-          <Toolbar variant="dense">
-            <DropdownMenu />
-            <Typography variant="h6" color="inherit">
-              Dashboard
-            </Typography>
-            {console.log(presentations)}
-          </Toolbar>
-        </AppBar>
+        <Navbar/>
       </div>
-      <CardComponent/>
+      <CardsComponent presentations={presentations}/>
     </div>
   );
 }
