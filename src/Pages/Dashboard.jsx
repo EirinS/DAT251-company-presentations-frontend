@@ -71,6 +71,7 @@ export default function Dashboard() {
         <br></br>
         <AddPresentationComponent/>
       </Container>
+      <CardsComponent presentations={presentations}/>
 
       <footer className={classes.footer}>
         <Container maxWidth="sm">
