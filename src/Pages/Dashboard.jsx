@@ -20,14 +20,27 @@ import EqualizerIcon from '@material-ui/icons/Equalizer';
 import MenuIcon from "@material-ui/icons/Menu";
 import List from "@material-ui/core/List";
 import Navbar from "../Components/Navbar";
+import AddPresentationComponent from "../Components/AddPresentationComponent";
+import Container from "@material-ui/core/Container";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import ContactPhoneIcon from '@material-ui/icons/ContactPhone';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
-    flexGrow: 1
+    display: 'flex',
+    flexDirection: 'column',
+    minHeight: '100vh',
   },
-  menuButton: {
-    marginRight: theme.spacing(2)
-  }
+  main: {
+    marginTop: theme.spacing(8),
+    marginBottom: theme.spacing(2),
+  },
+  footer: {
+    padding: theme.spacing(3, 2),
+    marginTop: 'auto',
+    backgroundColor:
+        theme.palette.type === 'light' ? theme.palette.grey[200] : theme.palette.grey[800],
+  },
 }));
 
 export default function Dashboard() {
@@ -52,10 +65,31 @@ export default function Dashboard() {
 
   return (
     <div className={classes.root}>
-      <div>
-        <Navbar/>
-      </div>
-      <CardsComponent presentations={presentations}/>
+      <Navbar/>
+      {/*Probably only make this accessible by admins*/}
+      <Container>
+        <br></br>
+        <AddPresentationComponent/>
+      </Container>
+
+      <footer className={classes.footer}>
+        <Container maxWidth="sm">
+          <p>Gjør footer kulere</p>
+          <Typography variant="h6" component="h1" gutterBottom>
+          <Grid container spacing={2}>
+            <Grid item xs={4}>
+              {'Kul Logo'}
+            </Grid>
+            <Grid item xs={4}>
+              <ContactPhoneIcon/>{'Kontakt info'}
+            </Grid>
+            <Grid item xs={4}>
+              {'Om oss'}
+            </Grid>
+          </Grid>
+          </Typography>
+        </Container>
+      </footer>
     </div>
   );
 }

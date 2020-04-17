@@ -54,10 +54,12 @@ export default function Navbar() {
                             <ListItemIcon><EqualizerIcon/></ListItemIcon>
                             <ListItemText primary={'Status'} />
                         </ListItem>
-                        <ListItem button>
+                        <a href={"/Contact"} style={{textDecoration: "none", color: "inherit"}}>
+                            <ListItem button>
                             <ListItemIcon><MailOutlineIcon/></ListItemIcon>
                             <ListItemText primary={'Kontakt oss'} />
                         </ListItem>
+                        </a>
                     </Drawer>
                     {/*<Typography variant="h6" color="inherit">
               Dashboard
