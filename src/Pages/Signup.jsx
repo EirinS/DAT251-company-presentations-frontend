@@ -42,6 +42,8 @@ export default function Signup() {
     const [firstname, setFirstname] = React.useState("");
     const [lastname, setLastname] = React.useState("");
     const [password, setPassword] = React.useState("");
+    const [year, setYear] = React.useState("");
+    const [study, setStudy] = React.useState("");
 
     const SignUpUser = async () => {
         try {
@@ -49,7 +51,9 @@ export default function Signup() {
                 email : email,
                 firstname : firstname,
                 lastname : lastname,
-                password : password
+                password : password,
+                year : year,
+                study : study
             });
         }
         catch (e) {
@@ -96,6 +100,31 @@ export default function Signup() {
                                     autoComplete="lname"
                                 />
                             </Grid>
+                                <Grid item xs={12} sm={6}>
+                                    <TextField
+                                        onChange={event => setStudy(event.target.value)}
+                                        autoComplete="study"
+                                        name="study"
+                                        variant="outlined"
+                                        required
+                                        fullWidth
+                                        id="study"
+                                        label="study"
+                                        autoFocus
+                                    />
+                                </Grid>
+                                <Grid item xs={12} sm={6}>
+                                    <TextField
+                                        onChange={event => setYear(event.target.value)}
+                                        variant="outlined"
+                                        required
+                                        fullWidth
+                                        id="year"
+                                        label="year"
+                                        name="year"
+                                        autoComplete="year"
+                                    />
+                                </Grid>
                             <Grid item xs={12}>
                                 <TextField
                                     onChange={event => setEmail(event.target.value)}
