@@ -39,7 +39,7 @@ export default function Signup() {
   const classes = useStyles();
 
   const [email, setEmail] = React.useState("");
-  const [firstname, setFirstname] = React.useState("");
+  const [firstName, setFirstName] = React.useState("");
   const [lastname, setLastname] = React.useState("");
   const [password, setPassword] = React.useState("");
   const [year, setYear] = React.useState("");
@@ -50,17 +50,20 @@ export default function Signup() {
     console.log("Signing up user...");
     await fetch("http://localhost:8080/api/register", {
       method: "POST",
-      mode: "cors",
-      body: {
+      body: JSON.stringify({
         email: email,
-        firstName: firstname,
+        firstName: firstName,
         lastName: lastname,
         password: password,
         year: year,
         study: study,
-      },
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+      }
     })
-      .then((response) => console.log(response))
+      .then((response) => response.json())
+      .then((data) => console.log(data))
       .catch((e) => {
         console.error(e);
       });
@@ -82,7 +85,7 @@ export default function Signup() {
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
                 <TextField
-                  onChange={(event) => setFirstname(event.target.value)}
+                  onChange={(event) => setFirstName(event.target.value)}
                   autoComplete="fname"
                   name="firstName"
                   variant="outlined"
