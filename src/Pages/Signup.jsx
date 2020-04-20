@@ -48,16 +48,19 @@ export default function Signup() {
   const SignUpUser = async (e) => {
     e.preventDefault();
     console.log("Signing up user...");
-    await axios
-      .post("http://localhost:8080/api/register", {
+    await fetch("http://localhost:8080/api/register", {
+      method: "POST",
+      mode: "cors",
+      body: {
         email: email,
         firstName: firstname,
         lastName: lastname,
         password: password,
         year: year,
         study: study,
-      })
-      .then(() => console.log("Signed up user"))
+      },
+    })
+      .then((response) => console.log(response))
       .catch((e) => {
         console.error(e);
       });
